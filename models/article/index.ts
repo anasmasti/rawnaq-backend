@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ArticleSchema = new mongoose.Schema({
     title: String,
-    descreption: String
+    description: String
   });
 
   const Article = mongoose.model('Article', ArticleSchema);
