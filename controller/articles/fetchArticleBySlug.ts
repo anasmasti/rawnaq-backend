@@ -1,15 +1,9 @@
 const Article = require("../../models/article/index.ts");
-const postArticle = require('../../services/articale/postArticle.ts')
+const getArticleBySlug = require("../../services/articale/getArticleBySlug.ts");
 
-const addArticle =  (req, res) => {
+const feshArticleBySlug = (req, res) => {
   try {
-    const article = new Article({
-      title: req.body.title,
-      description: req.body.description,
-      slug: req.body.slug
-    });
-
-    postArticle(article)
+    getArticleBySlug(req.params.slug, Article)
       .then((data) => {
         res.json(data);
       })
@@ -21,4 +15,4 @@ const addArticle =  (req, res) => {
   }
 };
 
-module.exports = addArticle;
+module.exports = feshArticleBySlug;
