@@ -1,3 +1,4 @@
+require('dotenv').config()
 const http = require("http");
 const express = require("express");
 const mongoDbConnection = require("./db/config.db.ts");
@@ -5,7 +6,9 @@ const app = express();
 const server = http.createServer(app);
 const articleRoute = require("./router/article.routes.ts");
 const homeRoute = require("./router/home.routes.ts");
+const port = process.env.PORT 
 
+// Connect to MongoDB
 mongoDbConnection;
 
 //routes configuration
@@ -15,6 +18,6 @@ mongoDbConnection;
   });
 })(articleRoute, homeRoute);
 
-server.listen(8888, () => {
-  console.log(`Server runnig at : http://localhost:${8888}`);
+server.listen(port, () => {
+  console.log(`Server runnig at : http://localhost:${port}`);
 });
