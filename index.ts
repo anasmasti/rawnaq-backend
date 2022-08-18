@@ -6,6 +6,7 @@ import handleRoutes from "./src/api/v1/utils/handleRoutes";
 
 // Routes importation
 const articleRoute = require("./src/api/v1/router/article.routes.ts");
+const authorRoute = require("./src/api/v1/router/author.routes.ts");
 const homeRoute = require("./src/api/v1/router/home.routes.ts");
 
 // Server config
@@ -26,7 +27,7 @@ app.use(express.json());
 mongoDbConnection;
 
 //routes configuration
-handleRoutes(app, articleRoute, homeRoute);
+handleRoutes(app, articleRoute, authorRoute, homeRoute);
 
 server.listen(port, () => {
   console.log(`Server runnig at : http://localhost:${port}`);

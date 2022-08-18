@@ -5,7 +5,10 @@ const getArticleBySlug = async (
   slug: string,
   Article: Model<IArticle, {}, {}, {}, any>
 ) => {
-  return await Article.findOne({ slug: slug });
+  return await Article.findOne({ slug: slug }).populate(
+    "author",
+    "full_name -_id"
+  );
 };
 
 export default getArticleBySlug;
